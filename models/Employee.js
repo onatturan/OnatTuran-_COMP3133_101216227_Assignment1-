@@ -15,4 +15,5 @@ const employeeSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Employee', employeeSchema);
+// Çözüm: Eğer model zaten varsa onu kullan, yoksa oluştur
+module.exports = mongoose.models.Employee || mongoose.model('Employee', employeeSchema);
